@@ -19,6 +19,7 @@ let graph =  {
 
 let BFS = (graph, target) => {
   let queue = [graph];
+  let Answer = 'No node found';
 
   while(queue.length) {
     let current = queue.shift();
@@ -33,6 +34,8 @@ let BFS = (graph, target) => {
       }
     }
   }
+
+  return Answer;
 };
 
 let work = BFS(graph, 'E');
