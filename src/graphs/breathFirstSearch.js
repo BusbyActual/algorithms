@@ -16,23 +16,32 @@ let graph =  {
   ]}]
 };
 
-console.log(graph.children);
+// console.log(graph.children);
 
 let BFS = (graph, target) => {
   let queue = [graph];
 
-  for (let x = 0; x < queue.length; x++) {
+  while(queue.length) {
+    // console.log(x, JSON.stringify(queue), '##')
     let current = queue.shift();
+    console.log(current.value, target, queue.length)
 
     if (current.value === target) {
+      console.log('winnnn', current)
       return current;
     } else {
-      if (current.children) {
-        current.forEach((child) => {
+      if (current.children.length) {
+        console.log(current.children)
+        current.children.forEach((child) => {
           queue.push(child);
         });
+        x = 0;
+        console.log(JSON.stringify(queue))
       }
     }
-  }
 
+    console.log(queue, x)
+  }
 };
+
+BFS(graph, 'E');
