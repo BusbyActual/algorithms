@@ -5,8 +5,17 @@ let graph = [ ['G','I','Z'],
 
 let boggle = (graph, targets) => {
   let Answer = [];
+  let map = {};
 
-  return Answer;
+  targets.map((target, index) => {
+    if (map[target[0]]) {
+      map[target[0]].push(index);
+    } else {
+      map[target[0]] = [index];
+    }
+  });
+
+  return map;
 };
 
 let work = boggle(graph, words);
